@@ -7,7 +7,7 @@ class CalcButton extends StatelessWidget{
   final int textColor;
   final int fillColor;
   final double textSize;
-  const CalcButton({required Key key, 
+  const CalcButton({ Key? key, 
   required this.fillColor, 
   required this.text, 
   this.textColor=0xFFFFFFF, 

@@ -15,35 +15,34 @@ class CalcApp extends StatelessWidget {
       ),
       home: Scaffold(
         backgroundColor: Color(0xFF283637),
-        body: Row(
+        body: Column(
+        children:<Widget>[
+          Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
           CalcButton(
-            key: key, 
             fillColor: 0xFF6C807F, 
             text: 'AC'
             ),
           CalcButton(
-            key: key, 
             fillColor: 0xFF6C807F , 
             text: 'C'
             ),
           CalcButton(
-            key: key, 
             fillColor: 0xFFFFFFFF, 
             textColor: 0xFF6C807F,
             text: '%'
             ),
-           CalcButton(
-            key: key, 
+          CalcButton(
             fillColor: 0xFFFFFFFF, 
             textColor: 0xFF6C807F,
             text: '/'
             ),
           ],
         ),
-       ),
+        ],
       ),
+    ),
     );
   }
 }
