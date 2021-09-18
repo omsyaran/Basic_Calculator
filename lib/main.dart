@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_expressions/math_expressions.dart';
+import 'package:math_expressions/math_expressions.dart'; 
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
 import './widgets/CalcButton.dart';
@@ -238,7 +238,7 @@ class CalcAppState extends State<CalcApp> {
               fillColor: 0xFFFFFFFF, 
               textColor: 0xFF6C807F,
               text: '=',
-              callback: numClick
+              callback: evaluate
               ),
             ],
         ),
