@@ -1,9 +1,9 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
 import './widgets/CalcButton.dart';
+
 
 void main() {
   runApp(CalcApp());
@@ -25,6 +25,31 @@ class CalcAppState extends State<CalcApp> {
       _expression += text;
     });
   }
+
+  void allClear(String text){
+    setState(() {
+      _history ='';
+      _expression = '';
+    });
+  }
+
+  void clear(String text){
+    setState(() {
+      _expression = '';
+    });
+  }
+
+  void evaluate(String text){
+    Parser p = Parser();
+    Expression exp = p.parse(_expression);
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
+    setState(() {
+      _history = _expression;
+      _expression = eval.toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -71,13 +96,13 @@ class CalcAppState extends State<CalcApp> {
               textColor: 0xFFFFFFFF,
               textSize: 22,
               text: 'AC',
-              callback: numClick
+              callback: allClear
               ),
             CalcButton(
               fillColor: 0xFF6C807F, 
               textColor: 0xFFFFFFFF,
               text: 'C',
-              callback: numClick
+              callback: clear
               ),
             CalcButton(
               fillColor: 0xFFFFFFFF, 
@@ -119,7 +144,7 @@ class CalcAppState extends State<CalcApp> {
               fillColor: 0xFFFFFFFF, 
               textColor: 0xFF6C807F,
               textSize: 28,
-              text: 'x',
+              text: '*',
               callback: numClick
               ),
             ],
